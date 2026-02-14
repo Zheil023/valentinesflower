@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to top, #ff9a9e, #fad0c4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 40px;
+}
+
+.scene {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flower {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+
+/* Petals */
+.petal {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #ff4d6d;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.6s ease;
+}
+
+/* Spread petals evenly */
+.flower.bloom .petal:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-70px) scale(1);
+}
+
+.flower.bloom .petal:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(72deg) translateY(-70px) scale(1);
+}
+
+.flower.bloom .petal:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(144deg) translateY(-70px) scale(1);
+}
+
+.flower.bloom .petal:nth-child(4) {
+    transform: translate(-50%, -50%) rotate(216deg) translateY(-70px) scale(1);
+}
+
+.flower.bloom .petal:nth-child(5) {
+    transform: translate(-50%, -50%) rotate(288deg) translateY(-70px) scale(1);
+}
+
+/* Center */
+.center {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: gold;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #c2185b;
+    font-size: 18px;
+    transition: transform 0.6s ease;
+}
+
+.flower.bloom .center {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Stem */
+.stem {
+    width: 10px;
+    height: 220px;
+    background: green;
+    margin-top: -30px;
+}
+
+/* Leaves */
+.leaf {
+    position: absolute;
+    width: 70px;
+    height: 35px;
+    background: green;
+    border-radius: 50%;
+}
+
+.leaf-left {
+    top: 170px;
+    left: -50px;
+    transform: rotate(-30deg);
+}
+
+.leaf-right {
+    top: 210px;
+    right: -50px;
+    transform: rotate(30deg);
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
